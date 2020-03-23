@@ -5,6 +5,8 @@
 
 # production
 bundle.js
+bundle.js.map
+styles.css.map
 
 # misc
 .DS_Store
