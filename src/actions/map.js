@@ -1,0 +1,28 @@
+// SET MAP CENTER
+export const setMapCenter = (latlong) => ({
+    type: 'SET_CENTER',
+    center: latlong
+});
+
+// SET MAP ZOOM
+export const setMapZoom = (proximity = 0) => ({
+    type: 'SET_ZOOM',
+    zoom: calculateMapZoomWithProximity(proximity)
+});
+
+
+const calculateMapZoomWithProximity = (proximity) => {
+    proximity = parseInt(proximity);
+    let zoom =  10;
+
+    if (proximity <= 2) {
+        zoom = 13;
+    } 
+    else if (proximity <= 6) {
+        zoom = 12;
+    } 
+    else if (proximity <= 10) {
+        zoom = 11;
+    }
+    return zoom;
+}
