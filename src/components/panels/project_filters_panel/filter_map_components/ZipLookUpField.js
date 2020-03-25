@@ -1,12 +1,10 @@
 import React from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import { MeepService } from '../../../../services/meep_service';
+import { meep_service } from '../../../../services/meep_service';
 import { setMapCenter } from '../../../../actions/map';
 import { setZipCode, setLatLngCoordinates } from '../../../../actions/filters';
 import { connect } from 'react-redux';
-
-const meep_service = new MeepService();
 
 class ZipLookUpField extends React.Component {
     constructor(props) {

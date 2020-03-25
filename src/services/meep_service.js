@@ -4,7 +4,7 @@ const STREET_VIEW_API = "https://maps.googleapis.com/maps/api/streetview";
 import { GoogleMapsAPIKey } from "../../private/google_maps";
 import axios from 'axios';
 
-export class MeepService {
+class MeepService {
     getLocations() {
         return new Promise((resolve, reject) => {
             axios.get(REMOTE_API + '/location-markers')
@@ -59,7 +59,33 @@ export class MeepService {
             .catch((err) => { reject(err) });
         });
     }
+
+    getGeoDataByLatLong(lat_lng) {
+        return new Promise((resolve, reject) => {
+            axios.get(`${GEODATA_API}?latlng==${lat_lng}&key=${GoogleMapsAPIKey}`)
+            .then((res) => {
+                const location_data_array = (res.data.results.length && res.data.results[0].hasOwnProperty("address_components")) ? 
+                    res.data.results[0]["address_components"] :
+                    null;
+
+                if(location_data_array) {
+                    const zipcode_props = location_data_array.find(data => {
+                        return data["types"].includes("postal_code");
+                    });
+    
+                    resolve(zipcode_props["long_name"]);
+                }
+                else {
+                    reject('zipcode not found in successful geo data api call');
+                }
+            })
+            .catch((err) => { reject(err) });
+        });
+    }
+
     getStreetViewImgUrlByGeoData(lat_lng) {
         return `${STREET_VIEW_API}?location=${lat_lng}&key=${GoogleMapsAPIKey}&size=400x200`;
     }
 }
+
+export const meep_service = new MeepService();

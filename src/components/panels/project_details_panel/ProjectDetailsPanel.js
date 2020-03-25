@@ -5,9 +5,7 @@ import SubHeader from '../../helpers/SubHeader';
 import ActionButton from '../../helpers/ActionButton';
 import ImpactStatRow from './ImpactStatRow';
 import { connect } from 'react-redux';
-import { MeepService } from '../../../services/meep_service';
-
-const meep_service = new MeepService();
+import { meep_service } from '../../../services/meep_service';
 
 class ProjectDetailsPanel extends Component {
     constructor(props) {

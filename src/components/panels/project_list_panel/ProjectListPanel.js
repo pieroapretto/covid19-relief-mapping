@@ -3,13 +3,11 @@ import Header from '../../helpers/Header';
 import BackToLink from '../../helpers/BackToLink';
 import ProjectCard from './ProjectCard';
 import { connect } from 'react-redux';
-import { MeepService } from '../../../services/meep_service';
+import { meep_service } from '../../../services/meep_service';
 import { addProjects } from '../../../actions/projects';
 import { Link } from 'react-router-dom';
 import { selectProject } from '../../../actions/project_details';
 import { selectProjectLocations } from '../../../selectors/locations';
-
-const meep_service = new MeepService();
 
 class ProjectListPanel extends React.Component {
     constructor(props) {

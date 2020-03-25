@@ -1,14 +1,12 @@
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import { connect } from 'react-redux';
-import { MeepService } from '../../../services/meep_service';
+import { meep_service } from '../../../services/meep_service';
 import { selectProject } from '../../../actions/project_details';
 import { withRouter} from 'react-router-dom';
 import { selectProjectLocations } from '../../../selectors/locations';
 import { GoogleMapsAPIKey } from '../../../../private/google_maps';
 import uuid from 'uuid';
-
-const meep_service = new MeepService();
 
 const mapState = {
     marker : {
