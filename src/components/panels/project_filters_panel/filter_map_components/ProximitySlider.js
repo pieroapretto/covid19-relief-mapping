@@ -1,6 +1,6 @@
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Slider from 'rc-slider';
 import Tooltip from 'rc-tooltip';
@@ -30,7 +30,7 @@ const displayProximityValueToolTip = (sliderProps) => {
 	);
 };
 
-class ProximitySlider extends React.Component {
+class ProximitySlider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

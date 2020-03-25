@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CheckBoxRow from '../filter_map_components/CheckBoxRow';
 
-class CheckBox extends React.Component {
+class CheckBox extends Component {
     constructor(props) {
         super(props);
         this.toggleView = this.toggleView.bind(this);

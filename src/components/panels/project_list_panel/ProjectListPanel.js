@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from '../../helpers/Header';
 import BackToLink from '../../helpers/BackToLink';
 import ProjectCard from './ProjectCard';
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { selectProject } from '../../../actions/project_details';
 import { selectProjectLocations } from '../../../selectors/locations';
 
-class ProjectListPanel extends React.Component {
+class ProjectListPanel extends Component {
     constructor(props) {
         super(props);
     }

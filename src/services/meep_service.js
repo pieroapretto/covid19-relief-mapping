@@ -46,7 +46,7 @@ class MeepService {
         });
     }
 
-    getGeoDataByZipCode(zipcode) {
+    fetchGeoDataByZipCode(zipcode) {
         return new Promise((resolve, reject) => {
             axios.get(`${GEODATA_API}?address=${zipcode}&key=${GoogleMapsAPIKey}`)
             .then((res) => {
@@ -60,9 +60,9 @@ class MeepService {
         });
     }
 
-    getGeoDataByLatLong(lat_lng) {
+    getZipCodeByLatLong(lat_lng) {
         return new Promise((resolve, reject) => {
-            axios.get(`${GEODATA_API}?latlng==${lat_lng}&key=${GoogleMapsAPIKey}`)
+            axios.get(`${GEODATA_API}?latlng=${lat_lng}&key=${GoogleMapsAPIKey}`)
             .then((res) => {
                 const location_data_array = (res.data.results.length && res.data.results[0].hasOwnProperty("address_components")) ? 
                     res.data.results[0]["address_components"] :

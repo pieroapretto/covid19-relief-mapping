@@ -8,16 +8,6 @@ import { selectProjectLocations } from '../../../selectors/locations';
 import { GoogleMapsAPIKey } from '../../../../private/google_maps';
 import uuid from 'uuid';
 
-const mapState = {
-    marker : {
-        strokeColor: "hsl(125, 100%, 14%)",
-        fillColor:'hsl(125, 100%, 14%)',
-        fillOpacity: "0.7",
-        radius: 500,
-        strokeWeight: 1
-    }
-}
-
 const mapStateToProps = (state, ownProps) => {
     return { 
         ...ownProps,

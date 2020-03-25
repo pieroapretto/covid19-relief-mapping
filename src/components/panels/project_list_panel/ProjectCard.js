@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import LocationMarker from '../../helpers/locationMarker';
 
-class ProjectCard extends React.Component {
+class ProjectCard extends Component {
     render () {
         const { Name, Type, Rank, StartYear } = this.props;
         return (

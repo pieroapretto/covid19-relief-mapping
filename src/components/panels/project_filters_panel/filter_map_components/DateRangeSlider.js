@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from 'react';
 import Tooltip from 'rc-tooltip';
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -28,7 +28,7 @@ const handleDateRangeChange = (props) => {
   );
 };
 
-class DateRangeSlider extends React.Component {
+class DateRangeSlider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
