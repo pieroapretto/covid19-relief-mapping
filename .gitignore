@@ -6,9 +6,10 @@
 # production
 bundle.js
 bundle/bundle.js
-/public/dist/bundle.js.map
-/public/dist/styles.css
-/public/dist/styles.css.map
+public/dist/bundle.js.map
+public/dist/styles.css
+public/dist/styles.css.map
+/private
 
 # misc
 .DS_Store

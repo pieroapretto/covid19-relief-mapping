@@ -9,6 +9,6 @@ export const selectProjectLocations = (locations, { types, range, lat_lng }) => 
       //Proximity value
       const withinProximityMatch = typeof range !== 'number' || withinProximity(lat_lng, location.center, range);
       
-      return startDateMatch && endDateMatch && locationTypeMatch && withinProximityMatch;
+      return locationTypeMatch && withinProximityMatch;
     })
 };

@@ -43,7 +43,7 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
-      port: 8200
+      port: 8300
     }
   }
 };
