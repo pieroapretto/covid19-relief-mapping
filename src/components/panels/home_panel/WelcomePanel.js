@@ -13,7 +13,7 @@ const WelcomePanel = () => (
         </div>
         <SubHeader Text="Here's How It Works"/>
         <IconRow IconType="donation" Text="Post a donation for non-contact pickup in your area."/>
-        <IconRow IconType="map-marked" Text="Avoid the grocery store by looking for donations in your proximity."/>
+        <IconRow IconType="map-marked" Text="Avoid stores by looking for donations in your proximity."/>
         <IconRow IconType="filter" Text="Filter the map based on zipcode, area promixity and donation type."/>
         <div className="btn-container">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScWAksnaPL5l744YVroZl1MwkOc7htodFq2HPIrSfVYaIjyyw/viewform?usp=sf_link" target="_blank">
