@@ -61,7 +61,6 @@ export const setGeoData = (geo_data=null) => {
 
 export const fetchGeoData = () => {
     return new Promise(function (resolve, reject) {
-        let geo_data = null;
 
         // query cookies for geo data
         const cookie_values = getCookieParams();
