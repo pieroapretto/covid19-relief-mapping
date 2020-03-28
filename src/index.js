@@ -9,14 +9,14 @@ import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter';
 import { Provider } from "react-redux";
 import configureStore from './store/configure_store';
-import { meep_service } from './services/meep_service';
+import { geo_service } from './services/geo_service';
 import { addLocations } from './actions/locations';
-// import './firebase/firebase';
+import './firebase/init';
 
 // config redux store
 const store = configureStore();
 
-meep_service.getLocations().then(data => {
+geo_service.getLocations().then(data => {
     store.dispatch(addLocations(data));
 });
 

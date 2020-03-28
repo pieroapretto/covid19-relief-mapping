@@ -3,7 +3,7 @@ import Header from '../../helpers/Header';
 import BackToLink from '../../helpers/BackToLink';
 import ProjectCard from './ProjectCard';
 import { connect } from 'react-redux';
-import { meep_service } from '../../../services/meep_service';
+import { geo_service } from '../../../services/geo_service';
 import { addProjects } from '../../../actions/projects';
 import { Link } from 'react-router-dom';
 import { selectProject } from '../../../actions/project_details';
@@ -14,7 +14,7 @@ class ProjectListPanel extends Component {
         super(props);
     }
     dispatchProjectSummary (project_id) {
-        meep_service.getProjectDetailsById(project_id).then(data => {
+        geo_service.getProjectDetailsById(project_id).then(data => {
             this.props.dispatch(selectProject(data));
         });
     }

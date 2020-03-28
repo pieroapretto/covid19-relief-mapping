@@ -1,4 +1,4 @@
-import { meep_service } from '../services/meep_service';
+import { geo_service } from '../services/geo_service';
 
 const getCookieParams = () => {
     return document.cookie.split(';').reduce((cookieObject, cookieString) => {
@@ -33,7 +33,7 @@ export const configGeoDataProps = (geo_data) => {
             geo_data_props.latitude = geo_data.coords.latitude;
             geo_data_props.longitude = geo_data.coords.longitude;
 
-            meep_service.getZipCodeByLatLong(geo_data_props.latitude + ', ' + geo_data_props.longitude)
+            geo_service.getZipCodeByLatLong(geo_data_props.latitude + ', ' + geo_data_props.longitude)
             .then(zipcode => {
                 geo_data_props.zipcode = zipcode;
                 resolve(geo_data_props);

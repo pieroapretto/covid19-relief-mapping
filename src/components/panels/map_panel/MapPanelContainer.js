@@ -1,7 +1,7 @@
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import { connect } from 'react-redux';
-import { meep_service } from '../../../services/meep_service';
+import { geo_service } from '../../../services/geo_service';
 import { selectProject } from '../../../actions/project_details';
 import { withRouter} from 'react-router-dom';
 import { selectProjectLocations } from '../../../selectors/locations';
@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 const MyMapComponent = connect(mapStateToProps)(withScriptjs(withGoogleMap((props) => {
 
     const dispatchProjectSummary = (location) => {
-        meep_service.getProjectDetailsById(location.project_id).then(project => {
+        geo_service.getProjectDetailsById(location.project_id).then(project => {
             project.lat_lng = location.center.lat + ',' + location.center.lng;
             props.dispatch(selectProject(project));
             props.history.push("/details");

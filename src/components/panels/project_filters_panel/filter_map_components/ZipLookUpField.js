@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import { meep_service } from '../../../../services/meep_service';
+import { geo_service } from '../../../../services/geo_service';
 import { setMapCenter } from '../../../../actions/map';
 import { setZipCode, setLatLngCoordinates } from '../../../../actions/filters';
 import { fetchGeoData, configGeoDataProps, setGeoDataCookies } from '../../../../utilities/geo_utilities';
@@ -28,7 +28,7 @@ class ZipLookUpField extends Component {
         const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode);
         
         if(isValidZip) {
-            meep_service.fetchGeoDataByZipCode(zipcode).then(lat_lng => {
+            geo_service.fetchGeoDataByZipCode(zipcode).then(lat_lng => {
                 if(lat_lng.hasOwnProperty('lat') && lat_lng.hasOwnProperty('lng')) {
                     this.props.dispatch(setMapCenter(lat_lng));
                     this.props.dispatch(setLatLngCoordinates(lat_lng));

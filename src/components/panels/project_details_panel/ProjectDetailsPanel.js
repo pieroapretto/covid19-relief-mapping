@@ -5,14 +5,14 @@ import SubHeader from '../../helpers/SubHeader';
 import ActionButton from '../../helpers/ActionButton';
 import ImpactStatRow from './ImpactStatRow';
 import { connect } from 'react-redux';
-import { meep_service } from '../../../services/meep_service';
+import { geo_service } from '../../../services/geo_service';
 
 class ProjectDetailsPanel extends Component {
     constructor(props) {
         super(props);
     }
     streetViewImgUrl(lat_lng) {
-        return meep_service.getStreetViewImgUrlByGeoData(lat_lng);
+        return geo_service.getStreetViewImgUrlByGeoData(lat_lng);
     }
     render() {
         return (
