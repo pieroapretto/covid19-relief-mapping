@@ -21,4 +21,4 @@ const IconRow = ({ Text, IconType }) => (
     </div>
 );
 
-export default IconRow;
+export default LocationMarker;
