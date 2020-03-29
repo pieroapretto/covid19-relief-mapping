@@ -16,11 +16,11 @@ const ProjectFiltersPanel = (props) => {
             <BackToLink Route="/" Text="Back to home"/>
             <div className="project-filters">
                 <div className="row">
-                    <div className="col-12 col-lg-3">
+                    <div className="col-12 col-lg-4">
                         <SubHeader Text="Zip Code"/>
                         <ZipLookUpField/>
                     </div>
-                    <div className="col-12 col-lg-9">
+                    <div className="col-12 col-lg-8">
                         <SubHeader Text="Proximity"/>
                         <ProximitySlider/>
                     </div>
