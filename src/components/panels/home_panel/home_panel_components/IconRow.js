@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationMarker from '../../../helpers/LocationMarker';
+import LocationMarker from '../../../helpers/locationMarker';
 
 const IconRow = ({ Text, IconType }) => (
     <div className="icon-container row">

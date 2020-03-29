@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectTypeMarker from '../../helpers/ProjectTypeMarker';
+import ProjectTypeMarker from '../../helpers/projectTypeMarker';
 import SubHeader from '../../helpers/SubHeader';
 import { getDateStringValue } from '../../../actions/project_details';
 

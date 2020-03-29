@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectTypeMarker from '../../../helpers/ProjectTypeMarker';
+import ProjectTypeMarker from '../../../helpers/projectTypeMarker';
 import { removeTypeFilter, addTypeFilter } from '../../../../actions/filters';
 import { connect } from 'react-redux';
 
