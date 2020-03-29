@@ -35,21 +35,22 @@ class ProximitySlider extends Component {
 		super(props);
 		this.state = {
 			minValue: 2,
-			maxValue: 20,
+			maxValue: 10,
             steps: 2
 		}
 	}
 
 	marks(minValue, maxValue) {
-	  let miLabels = [];
+	  let mileMarks = [];
 	  for (let i = minValue; i <= maxValue; i++ ) {
 	    if (i == minValue || i == maxValue || i % this.state.steps == 0) {
-	      miLabels.push(i);
+			mileMarks.push(i);
 	    }
 	  }
-	  return miLabels.reduce(function(result, year) {
-	    result[year] = year.toString();
-	    return result;
+	 
+	  return mileMarks.reduce(function(mark, value) {
+	    mark[value] = {label: value + ' mi'};
+	    return mark;
 	  }, {});
 	}
 
@@ -60,14 +61,14 @@ class ProximitySlider extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="range-container">
 				<Slider 
 					min={this.state.minValue}
 					max={this.state.maxValue}
 					step={this.state.steps}
 					marks={this.marks(this.state.minValue, this.state.maxValue)}
 					dotStyle={dotStyle}
-					defaultValue={this.props.filters.range}
+					defaultValue={this.props.range}
 					handle={displayProximityValueToolTip}
 					onChange={(value) => { this.handleProximityChange(value)}}
 				/>
@@ -77,7 +78,7 @@ class ProximitySlider extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        filters: state.filters
+        range: state.filters.range
     }
 }
 

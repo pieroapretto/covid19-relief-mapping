@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Tooltip from 'rc-tooltip';
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
+import { setStartDateFilter, setEndDateFilter } from '../../../../actions/filters';
+import { connect } from 'react-redux';
 const Handle = Slider.Handle;
 
 const dotStyle = {
@@ -15,10 +17,13 @@ const dotStyle = {
 
 const handleDateRangeChange = (props) => {
   const { value, dragging, index, key, className, disabled, offset, prefixCls} = props;
+
+  console.log(value, index, key);
+
   return (
     <Tooltip
       prefixCls="rc-slider-tooltip"
-      overlay={value}
+      overlay={'Posted ' + value + ' days ago'}
       visible={dragging}
       placement="top"
       key={index}
@@ -28,43 +33,45 @@ const handleDateRangeChange = (props) => {
   );
 };
 
-class DateRangeSlider extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			minValue: 2000,
-			maxValue: 2018,
-			defaultValue: [2015, 2018],
-		}
-	}
-	marks(minValue, maxValue) {
-	  let yearLabels = [];
-	  for (let i = minValue; i <= maxValue; i++ ) {
-	    if (i == minValue || i == maxValue || i % 5 == 0) {
-	      yearLabels.push(i);
-	    }
-	  }
-	  return yearLabels.reduce(function(result, year) {
-	    result[year] = year.toString();
-	    return result;
-	  }, {});
+const DateRangeSlider = (props) => {
+	const state = {
+		maxValue: 21,
+		minValue: 0,
+		steps: 7
 	}
 
-	render() {
-		return (
-		    <div>
-		    	<Range
-		    		min={this.state.minValue}
-		    		max={this.state.maxValue}
-		    		marks={this.marks(this.state.minValue, this.state.maxValue)}
-		    		dots={true}
-		    		dotStyle={dotStyle} 
-		    		defaultValue={this.state.defaultValue}
-		    		handle={handleDateRangeChange}
-		    		/>
-		    </div>
-			)
+	const getMarks = (minValue, maxValue) => {
+		let dayMarks = [];
+		for (let i = maxValue; i >= minValue; i--) {
+		  if (i == minValue || i == maxValue || i % state.steps == 0) {
+			dayMarks.push(i);
+		  }
+		}
+	   
+		return dayMarks.reduce(function(mark, value, index) {
+		  const days_ago = state.maxValue - (state.steps * index);
+		  mark[value] = {label: days_ago + ' days'};
+		  return mark;
+		}, {});
 	}
+
+	return (
+		<div className="range-container">
+			<Range
+				min={state.minValue}
+				max={state.maxValue}
+				marks={getMarks(state.minValue, state.maxValue)}
+				dots={true}
+				dotStyle={dotStyle} 
+				defaultValue={[state.minValue, state.maxValue]}
+				onChange={(value)=> {
+					props.dispatch(setEndDateFilter(value[0]))
+					props.dispatch(setStartDateFilter(value[1]))
+				}}
+				handle={handleDateRangeChange}
+				/>
+		</div>
+	)
 }
 
-export default DateRangeSlider;
+export default connect()(DateRangeSlider);

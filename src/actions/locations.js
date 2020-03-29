@@ -13,7 +13,7 @@ export const addLocations = (type, locations) => ({
         type: (type === 'ADD_DONATIONS') ? location.type : 'Request',
         contact_method: location.contact_method,
         phone: location.phone,
-        timestamp: location.timestamp,
+        timestamp: setTimeValue(location.timestamp),
         email: location.email,
         facebook_url: location.facebook_url,
         description: location.description,
@@ -23,6 +23,11 @@ export const addLocations = (type, locations) => ({
       }
   })
 });
+
+const setTimeValue = (timestamp) => {
+  let date = new Date(timestamp);
+  return date.getTime();
+}
 
 export const getDonationLocations = () => {
   return (dispatch) => {

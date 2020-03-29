@@ -23,7 +23,6 @@ export const setGeoDataCookies = (geo_data) => {
         }
       });
     }
-    console.log(geo_data, document.cookie);
 };
 
 export const configGeoDataProps = (geo_data) => {

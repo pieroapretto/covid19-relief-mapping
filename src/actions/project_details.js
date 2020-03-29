@@ -12,7 +12,7 @@ export const selectProject = (selected_project) => ({
     contact_method: selected_project.contact_method,
     contact_value: setContactValue(selected_project),
     date_string: setDateValue(selected_project.timestamp),
-    time: setTimeValue(selected_project.timestamp),
+    time: selected_project.timestamp,
     description: selected_project.description,
     business_name: selected_project.business_name || null
   }
@@ -46,11 +46,6 @@ const setContactValue = (selected_project) => {
     default:
       return 'No contact info found';
   }
-}
-
-const setTimeValue = (timestamp) => {
-  let date = new Date(timestamp);
-  return date.getTime();
 }
 
 const setDateValue = (timestamp) => {

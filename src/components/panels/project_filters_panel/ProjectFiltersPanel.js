@@ -4,7 +4,7 @@ import SubHeader from '../../helpers/SubHeader';
 import ActionButton from '../../helpers/ActionButton';
 import StatsContainer from './area_stats_components/AreaStatsContainer';
 import BackToLink from '../../helpers/BackToLink';
-import {ProximitySlider, ZipLookUpField, CheckBoxRow} from './filter_map_components/index';
+import { ProximitySlider, ZipLookUpField, CheckBoxRow, DateRangeSlider } from './filter_map_components/index';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -14,18 +14,20 @@ const ProjectFiltersPanel = (props) => {
         <div id="project_filters_panel">
             <BackToLink Route="/" Text="Back to home"/>
             <div className="project-filters">
-                <Header Text="Filter The Map View"/>
                 <div className="row">
-                    <div className="col">
+                    <div className="col-3">
                         <SubHeader Text="Zip Code"/>
                         <ZipLookUpField/>
                     </div>
-                </div>
-                <br/>
-                <div className="row">
-                    <div className="col">
+                    <div className="col-9">
                         <SubHeader Text="Proximity"/>
                         <ProximitySlider/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <SubHeader Text="Date Range"/>
+                        <DateRangeSlider/>
                     </div>
                 </div>
                 <br/>
@@ -50,7 +52,7 @@ const ProjectFiltersPanel = (props) => {
                         <Link to="/projects">
                             <ActionButton Text="Search"/>
                         </Link>
-                        <span onClick={(e) => props.dispatch(resetFilters())}>
+                        <span onClick={() => props.dispatch(resetFilters())}>
                             <ActionButton Text="Clear Filters" Class="secondary"/>
                         </span>
                     </div>
