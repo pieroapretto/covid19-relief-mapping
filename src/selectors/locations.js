@@ -9,9 +9,6 @@ export const selectProjectLocations = (locations, { types, range, lat, lng, star
       const startDateMatch = typeof startDate !== 'number' || location.timestamp >= startDate;
       const endDateMatch = typeof endDate !== 'number' || location.timestamp <= endDate;
 
-      console.log('start', location.timestamp, startDate);
-      console.log('end', location.timestamp, endDate);
-
       //Project type value
       const locationTypeMatch = !types.length || !types.includes(location.type);
 

@@ -18,8 +18,6 @@ const dotStyle = {
 const handleDateRangeChange = (props) => {
   const { value, dragging, index, key, className, disabled, offset, prefixCls} = props;
 
-  console.log(value, index, key);
-
   return (
     <Tooltip
       prefixCls="rc-slider-tooltip"
