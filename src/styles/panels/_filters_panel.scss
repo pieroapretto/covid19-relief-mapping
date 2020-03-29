@@ -2,7 +2,7 @@
     .stats-container {
         opacity: .7;
         font-size: .7rem;
-        padding: 1.5rem 1rem;
+        padding: 1rem;
     }
     .input-group-sm {
         input {
@@ -26,7 +26,7 @@
 .checkbox-container {
     max-width: 50%;
     cursor: pointer;
-    margin: 1em 0;
+    margin: 1rem 0;
     
     .hidden-checkbox{
         border: 0;
@@ -68,6 +68,10 @@
 
 .rc-slider-with-marks {
     margin-bottom: 2rem;
+
+    .rc-slider-mark  {
+        font-size: 0.7rem;
+    }
 
     .rc-slider-track {
         background-color: #509646;

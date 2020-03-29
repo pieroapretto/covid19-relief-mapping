@@ -1,72 +1,67 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BackToLink from '../.../../../helpers/BackToLink';
 import Header from '../../helpers/Header';
 import SubHeader from '../../helpers/SubHeader';
-import ActionButton from '../../helpers/ActionButton';
-import ImpactStatRow from './ImpactStatRow';
 import { connect } from 'react-redux';
-import { geo_service } from '../../../services/geo_service';
 
-class ProjectDetailsPanel extends Component {
-    constructor(props) {
-        super(props);
+const ProjectDetailsPanel = (props) => {
+    const isRequest = () => {
+        return props.project.type && props.project.type === 'Request';
     }
-    streetViewImgUrl(lat_lng) {
-        return geo_service.getStreetViewImgUrlByGeoData(lat_lng);
-    }
-    render() {
-        return (
-            <div className="project_details_container">
-                <BackToLink Route="/projects" Text="Back to projects"/>
-                <div className="row">
-                    <div className="col-6">
-                        <img className="project-details-img" src={this.streetViewImgUrl(this.props.project.lat_lng)}/>
-                    </div>
-                    <div className="col-6">
-                        <p>{this.props.project.name}</p>
-                        <p>{this.props.project.details}</p>
-                    </div>
-                    <Header Text="Impact Of This Project"/>
-                    <div className="row">
-                        <div className="col">
-                            <SubHeader Text="Between 2015 And 2018"/>
-                            <div className="stat-row">
-                                <ImpactStatRow 
-                                    Type="gas"
-                                    Number="8%" 
-                                    Text="decrease in greenhouse gases (ghg)"/>
-                                <ImpactStatRow 
-                                    Type="gallon"
-                                    Number="68" 
-                                    Text="decrease in greenhouse gases (ghg)"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col">
-                            <div className="stat-row">
-                                <SubHeader Text="SINCE THIS PROJECT BEGAN IN 2013"/>
-                                <ImpactStatRow 
-                                    Type="gas"
-                                    Number="16%" 
-                                    Text="decrease in greenhouse gases (ghg)"/>
-                                <ImpactStatRow 
-                                    Type="gallon"
-                                    Number="102" 
-                                    Text="decrease in greenhouse gases (ghg)"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col">
-                            <Header Text="Header"/>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl.</p>
-                        </div>
-                    </div>
+
+    return (
+        <div className="project_details_container">
+            <BackToLink Route="/projects" Text="Back to list"/>
+            <div className="row">
+                <div className="col">
+                    <Header Text={isRequest() ? "Request Info" : "Donation Info" }/>
                 </div>
             </div>
-        );
-    }
+            {props.project.business_name && 
+                <div className="row">
+                    <div className="col">
+                        <SubHeader Text="Business / Organization"/>
+                        <p>{props.project.business_name}</p>
+                    </div>
+                </div>
+            }
+            <div className="row">
+                <div className="col">
+                    <SubHeader Text="Contact Name"/>
+                    <p>{props.project.name}</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <SubHeader Text={isRequest() ? "Request" : "Donation Type" }/>
+                    <p>{props.project.type}</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <Header Text="Description"/>
+                    <p>{props.project.description}</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <Header Text="Contact Info"/>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <SubHeader Text="Preferred Method Of Contact"/>
+                    <p>{props.project.contact_method}</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    <SubHeader Text="Contact"/>
+                    <p>{props.project.contact_value}</p>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 

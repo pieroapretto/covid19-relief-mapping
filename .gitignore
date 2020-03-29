@@ -7,7 +7,6 @@
 bundle.js
 bundle/bundle.js
 public/dist/*
-/private/*
 
 # misc
 .DS_Store

@@ -11,7 +11,7 @@ export const selectProject = (selected_project) => ({
     type: selected_project.type,
     contact_method: selected_project.contact_method,
     contact_value: setContactValue(selected_project),
-    date_string: setDateValue(selected_project.timestamp),
+    date_string: getDateStringValue(selected_project.timestamp),
     time: selected_project.timestamp,
     description: selected_project.description,
     business_name: selected_project.business_name || null
@@ -37,10 +37,10 @@ export const selectDoneeLocation = (id) => {
 const setContactValue = (selected_project) => {
   switch (selected_project.contact_method) {
     case 'Text': 
-    case 'Phone':
+    case 'Call':
       return selected_project.phone;
     case 'Email':
-      return selected_project.emeail;
+      return selected_project.email;
     case 'Facebook':
       return selected_project.facebook_url;
     default:
@@ -48,7 +48,7 @@ const setContactValue = (selected_project) => {
   }
 }
 
-const setDateValue = (timestamp) => {
+export const getDateStringValue = (timestamp) => {
   let date = new Date(timestamp);
   const dtf = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }) 
   const [{ value: mo },,{ value: da },,{ value: ye }] = dtf.formatToParts(date) 

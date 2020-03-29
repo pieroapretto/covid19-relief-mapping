@@ -11,7 +11,12 @@ const filtersReducerDefaultState = {
 export default (state = filtersReducerDefaultState, action) => {
   switch (action.type) {
     case 'RESET_FILTERS':
-      return filtersReducerDefaultState;
+      return {
+        ...filtersReducerDefaultState,
+        zipcode: state.zipcode,
+        lat: state.lat,
+        lng: state.lng
+      };
     case 'FILTER_BY_RANGE':
       return {
         ...state,
