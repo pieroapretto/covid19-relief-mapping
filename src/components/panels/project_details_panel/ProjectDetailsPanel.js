@@ -31,12 +31,14 @@ const ProjectDetailsPanel = (props) => {
                     <p>{props.project.name}</p>
                 </div>
             </div>
-            <div className="row">
-                <div className="col">
-                    <SubHeader Text={isRequest() ? "Request" : "Donation Type" }/>
-                    <p>{props.project.type}</p>
+            {!isRequest() &&
+                <div className="row">
+                    <div className="col">
+                        <SubHeader Text="Donation Type"/>
+                        <p>{props.project.type}</p>
+                    </div>
                 </div>
-            </div>
+            }
             <div className="row">
                 <div className="col">
                     <Header Text="Description"/>

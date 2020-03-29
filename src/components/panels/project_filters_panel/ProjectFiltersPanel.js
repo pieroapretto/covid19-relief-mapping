@@ -34,7 +34,7 @@ const ProjectFiltersPanel = (props) => {
                 <br/>
                 <div className="row">
                     <div className="col">
-                        <SubHeader Text="Types Of Things"/>
+                        <SubHeader Text="Types Of Donations &#38; Services"/>
                         <div className="project-types-container">
                             <CheckBoxRow Label="Household Goods" ProjectType="Household Goods"/>
                             <CheckBoxRow Label="Delivery" ProjectType="Delivery Volunteer"/>
@@ -45,7 +45,7 @@ const ProjectFiltersPanel = (props) => {
                     </div>
                 </div>
                 <br/>
-                <Header Text="Stats For The Area"/>
+                <Header Text="Stats For This Area"/>
                 <StatsContainer/>
                 <br/>
                 <div className="row">

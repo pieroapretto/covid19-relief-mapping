@@ -34,9 +34,9 @@ class ProximitySlider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			minValue: 2,
-			maxValue: 10,
-            steps: 2
+			minValue: 5,
+			maxValue: 25,
+            steps: 5
 		}
 	}
 

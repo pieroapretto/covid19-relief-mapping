@@ -15,16 +15,13 @@ const calculateMapZoomWithProximity = (proximity) => {
     proximity = parseInt(proximity);
     let zoom =  10;
 
-    if (proximity <= 2) {
-        zoom = 14;
-    } 
-    else if (proximity <= 6) {
+     if (proximity <= 5) {
         zoom = 13;
     } 
     else if (proximity <= 10) {
         zoom = 12;
     }
-    else if (proximity <= 12) {
+    else if (proximity <= 20) {
         zoom = 11;
     }
     return zoom;

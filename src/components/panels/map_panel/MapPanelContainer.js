@@ -10,6 +10,9 @@ import uuid from 'uuid';
 import { ProjectTypeCSSMap } from '../../../utilities/style_utilities';
 
 const mapStateToProps = (state, ownProps) => {
+    console.log('donations', state.donation_locations);
+    console.log('filters', state.filters);
+
     return { 
         ...ownProps,
         donation_locations: state.donation_locations ? selectProjectLocations(state.donation_locations, state.filters) : [],
@@ -36,10 +39,11 @@ const MyMapComponent = connect(mapStateToProps)(withScriptjs(withGoogleMap((prop
             defaultCenter={props.map_state.center}>
             {props.donation_locations.map(location => {
                 const myLatlng = {lat: location.lat, lng: location.lng};
-                const iconType = `/images/markers/${ProjectTypeCSSMap[location.type]}-marker.svg`;
+                const iconType = ProjectTypeCSSMap[location.type] || 'default';
+                const iconTypeImg = `/images/markers/${iconType}-marker.svg`;
                 return <Marker
                             key={location.key}
-                            icon={iconType}
+                            icon={iconTypeImg}
                             onClick={()=>dispatchProjectSummary(location)}
                             position={myLatlng}>
                         </Marker>

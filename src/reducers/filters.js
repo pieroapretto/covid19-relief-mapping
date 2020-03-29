@@ -1,8 +1,7 @@
 const filtersReducerDefaultState = {
   range: 10,
   zipcode: 64106,
-  lat: 39.057, 
-  lng: -94.594,
+  lat_lng: { lat: 39.057, lng: -94.594 },
   types: [],
   startDate: null,
   endDate: null

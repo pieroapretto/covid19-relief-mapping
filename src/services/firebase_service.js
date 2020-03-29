@@ -5,6 +5,7 @@ class FireBaseService {
         return new Promise((resolve, reject) => {
             db.ref('/donation_locations').once('value', (snapshot) => {
                 const donations_list = snapshot.val();
+                console.log(donations_list);
                 if(donations_list) {
                     resolve(donations_list);
                 } else {

@@ -1,6 +1,6 @@
 const mapReducerDefaultState = {
     center: {lat: 39.057, lng: -94.594},
-    zoom: 11
+    zoom: 12
 };
   
 export default (state = mapReducerDefaultState, action) => {
