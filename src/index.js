@@ -1,7 +1,8 @@
-//import custom sass
-import './styles/main.scss';
 // Import bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+//import custom sass
+import './styles/main.scss';
 
 // Import React & Redux
 import React from 'react';
