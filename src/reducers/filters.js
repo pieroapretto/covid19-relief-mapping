@@ -1,7 +1,8 @@
 const filtersReducerDefaultState = {
   range: 10,
   zipcode: 64106,
-  lat_lng: {lat: 39.057, lng: -94.594},
+  lat: 39.057, 
+  lng: -94.594,
   types: [],
   startDate: null,
   endDate: null
@@ -19,12 +20,12 @@ export default (state = filtersReducerDefaultState, action) => {
     case 'ADD_TYPE_FILTER':
       return {
         ...state,
-        project_types: [...state.project_types, action.project_type]
+        types: [...state.types, action.project_type]
       };
     case 'REMOVE_TYPE_FILTER':
       return {
         ...state,
-        project_types: state.project_types.filter(type => type !== action.project_type)
+        types: state.types.filter(type => type !== action.project_type)
       };
     case 'FILTER_BY_START_DATE':
       return {

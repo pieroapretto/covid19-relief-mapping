@@ -4,14 +4,16 @@ import { selectProjectLocations } from '../../../../selectors/locations';
 
 const StatsContainer = (props) => (
     <div className="stats-container text-center">
-        <p><em>{props.number_of_projects} requests for aid in this area.</em></p>
+        <p><em>{props.number_of_donations} donation(s) in this area.</em></p>
+        <p><em>{props.number_of_donee} request(s) in this area.</em></p>
     </div>
 );
 
 const mapStateToProps = (state, ownProps) => {
     return { 
         ...ownProps,
-        number_of_projects: state.locations[0] ? selectProjectLocations(state.locations[0], state.filters).length : 0,
+        number_of_donations: state.donation_locations ? selectProjectLocations(state.donation_locations, state.filters).length : 0,
+        number_of_donee: state.donee_locations ? selectProjectLocations(state.donee_locations, state.filters).length : 0,
     }
 };
 

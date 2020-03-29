@@ -1,29 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import { connect } from 'react-redux';
-import { geo_service } from '../../../services/geo_service';
+import { getDonationLocations, getDoneeLocations } from '../../../actions/locations';
 import { selectProject } from '../../../actions/project_details';
 import { withRouter} from 'react-router-dom';
 import { selectProjectLocations } from '../../../selectors/locations';
 import { GoogleMapsAPIKey } from '../../../../private/google_maps';
 import uuid from 'uuid';
+import { ProjectTypeCSSMap } from '../../../utilities/style_utilities';
 
 const mapStateToProps = (state, ownProps) => {
     return { 
         ...ownProps,
-        locations: state.locations[0] ? selectProjectLocations(state.locations[0], state.filters) : [],
+        donation_locations: state.donation_locations ? selectProjectLocations(state.donation_locations, state.filters) : [],
+        donee_locations: state.donee_locations ? selectProjectLocations(state.donee_locations, state.filters) : [],
         map_state: state.map_state
     }
 };
 
 const MyMapComponent = connect(mapStateToProps)(withScriptjs(withGoogleMap((props) => {
+    useEffect(() => {
+        props.dispatch(getDonationLocations());
+        props.dispatch(getDoneeLocations());
+      }, []);
 
     const dispatchProjectSummary = (location) => {
-        geo_service.getProjectDetailsById(location.project_id).then(project => {
-            project.lat_lng = location.center.lat + ',' + location.center.lng;
-            props.dispatch(selectProject(project));
-            props.history.push("/details");
-        });
+        props.dispatch(selectProject(location));
+        props.history.push("/details");
     }
 
     return (
@@ -31,11 +34,23 @@ const MyMapComponent = connect(mapStateToProps)(withScriptjs(withGoogleMap((prop
             key={uuid()}
             defaultZoom={props.map_state.zoom}
             defaultCenter={props.map_state.center}>
-            {props.locations.map(location => {
+            {props.donation_locations.map(location => {
+                const myLatlng = {lat: location.lat, lng: location.lng};
+                const iconType = `/images/markers/${ProjectTypeCSSMap[location.type]}-marker.svg`;
                 return <Marker
                             key={location.key}
+                            icon={iconType}
                             onClick={()=>dispatchProjectSummary(location)}
-                            position={location.center}>
+                            position={myLatlng}>
+                        </Marker>
+            })}
+            {props.donee_locations.map(location => {
+                const myLatlng = {lat: location.lat, lng: location.lng};
+                return <Marker
+                            key={location.key}
+                            icon='/images/markers/baby-blue-marker.svg'
+                            onClick={()=>dispatchProjectSummary(location)}
+                            position={myLatlng}>
                         </Marker>
             })}
         </GoogleMap>

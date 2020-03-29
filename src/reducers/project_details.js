@@ -1,9 +1,13 @@
 const detailsReducerDefaultState = {
-    date: null,
-    img: null,
-    details: null,
+    _id: null,
     name: null,
-    lat_lng: null
+    type: null,
+    contact_method: null,
+    contact_value: null,
+    date_string: null,
+    time: null,
+    description: null,
+    business_name: null
 };
   
 export default (state = detailsReducerDefaultState, action) => {

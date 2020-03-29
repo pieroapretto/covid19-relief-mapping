@@ -1,8 +1,5 @@
 const mapReducerDefaultState = {
-    center: {
-        "lat": 39.0997,
-        "lng": -94.5786
-    },
+    center: {lat: 39.057, lng: -94.594},
     zoom: 11
 };
   

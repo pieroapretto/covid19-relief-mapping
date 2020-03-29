@@ -1,7 +1,7 @@
-import { db } from "../../private/firebase";
+import { db } from "../firebase/firebase_init";
 
 class FireBaseService {
-    getDonorLocations() {
+    getDonationLocations() {
         return new Promise((resolve, reject) => {
             db.ref('/donation_locations').once('value', (snapshot) => {
                 const donations_list = snapshot.val();
@@ -16,12 +16,12 @@ class FireBaseService {
 
     getDoneeLocations() {
         return new Promise((resolve, reject) => {
-            db.ref('/donation_locations').once('value', (snapshot) => {
+            db.ref('/donee_locations').once('value', (snapshot) => {
                 const donee_list = snapshot.val();
                 if(donee_list) {
                     resolve(donee_list);
                 } else {
-                    reject('error fetching donation locations from db');
+                    reject('error fetching donee locations from db');
                 }
             });
         });
@@ -54,4 +54,4 @@ class FireBaseService {
     }
 }
 
-export const firebase_db = new FireBaseService();
+export const firebase_service = new FireBaseService();

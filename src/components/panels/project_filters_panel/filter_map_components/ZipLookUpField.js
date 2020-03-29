@@ -32,6 +32,8 @@ class ZipLookUpField extends Component {
                 if(lat_lng.hasOwnProperty('lat') && lat_lng.hasOwnProperty('lng')) {
                     this.props.dispatch(setMapCenter(lat_lng));
                     this.props.dispatch(setLatLngCoordinates(lat_lng));
+                    const geo_data_props = {latitude: lat_lng.lat, longitude: lat_lng.lng, zipcode: zipcode};
+                    setGeoDataCookies(geo_data_props);
                 }
             });
         }

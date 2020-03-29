@@ -9,16 +9,10 @@ import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter';
 import { Provider } from "react-redux";
 import configureStore from './store/configure_store';
-import { geo_service } from './services/geo_service';
-import { addLocations } from './actions/locations';
-import './firebase/init';
+import './firebase/firebase_init';
 
 // config redux store
 const store = configureStore();
-
-geo_service.getLocations().then(data => {
-    store.dispatch(addLocations(data));
-});
 
 const app = (
     <Provider store={store}>

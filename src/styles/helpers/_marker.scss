@@ -1,11 +1,17 @@
 .location-marker, .project-type-marker {
-    .default, .donation {
+    .default, .dark-blue {
         fill: #1b2661;
     }
-    .delivery {
-        fill: #fdce06;
+    .dark-green {
+        fill: #00700f;
     }
-    .info {
+    .purple {
+        fill: #af31d6;
+    }
+    .red-orange {
+        fill: #d65231;
+    }
+    .baby-blue {
         fill: #318bd6;
     }
 }
