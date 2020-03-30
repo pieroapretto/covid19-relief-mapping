@@ -12,7 +12,7 @@ const CheckBoxRow = (props) => {
 
     return (
         <div className="checkbox-container" onClick={handleCheckedEvent}>
-            <input className="hidden-checkbox" type="checkbox" checked={props.checked}/>
+            <input className="hidden-checkbox" type="checkbox" defaultChecked={props.checked}/>
             <div className="styled-checkbox">
                 <svg className={`icon ${props.checked ? "show-checked" : "hide-checked"}`}
                      viewBox="0 0 24 24" >

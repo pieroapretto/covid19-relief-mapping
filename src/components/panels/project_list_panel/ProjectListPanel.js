@@ -39,7 +39,7 @@ class ProjectListPanel extends Component {
                     <div className="project-list">
                         {this.props.locations.map(project => {
                             return (
-                                <div onClick={() => this.dispatchProjectSummary(project)}>
+                                <div onClick={() => this.dispatchProjectSummary(project)} key={project.key}>
                                     <ProjectCard
                                             key={project.key}
                                             Name={project.name} 
