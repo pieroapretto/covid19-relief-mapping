@@ -4,19 +4,18 @@ import Header from '../../helpers/Header';
 import { connect } from 'react-redux';
 
 const ProjectDetailsPanel = (props) => {
-    const isRequest = () => {
-        return props.project.type && props.project.type === 'Request';
-    }
+    const isRequest = (props.project.type && props.project.type === 'Request');
+    const hasBusinessName = (props.project.business_name && props.project.business_name.length);
 
     return (
         <div className="project_details_container">
             <BackToLink Route="/projects" Text="Back to list"/>
             <div className="row">
                 <div className="col">
-                    <Header Text={isRequest() ? "Request Info" : "Donation Info" }/>
+                    <Header Text={isRequest ? "Request Info" : "Donation Info" }/>
                 </div>
             </div>
-            {props.project.business_name && 
+            {hasBusinessName && 
                 <div className="row">
                     <div className="col">
                         <div className="project_details_label">Business / Organization</div>
@@ -24,13 +23,14 @@ const ProjectDetailsPanel = (props) => {
                     </div>
                 </div>
             }
-            <div className="row">
+            {!hasBusinessName && <div className="row">
                 <div className="col">
-                    <div className="project_details_label">Contact Name</div>
-                    <p>{props.project.name}</p>
+                        <div className="project_details_label">Contact Name</div>
+                        <p>{props.project.name}</p>
+                    </div>
                 </div>
-            </div>
-            {!isRequest() &&
+            }
+            {!isRequest &&
                 <div className="row">
                     <div className="col">
                         <div className="project_details_label">Donation Type</div>
