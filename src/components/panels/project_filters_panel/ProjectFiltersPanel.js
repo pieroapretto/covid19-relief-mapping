@@ -42,7 +42,7 @@ const ProjectFiltersPanel = () => {
                     </div>
                 </div>
                 <br/>
-                <Header Text="Stats For This Area"/>
+                <Header Text="Stats For Your Area"/>
                 <StatsContainer/>
                 <br/>
                 <br/>
