@@ -26,7 +26,7 @@ class ProjectListPanel extends Component {
                 <Header Text="Projects That Match Your Search"/>
                 <div className="row">
                     <div className="col">
-                        <InputGroup size="sm" className="my-2">
+                        <InputGroup size="sm" className="my-2 project_list_filter">
                             <FormControl 
                                 aria-label="search text"
                                 placeholder="search results.." 
