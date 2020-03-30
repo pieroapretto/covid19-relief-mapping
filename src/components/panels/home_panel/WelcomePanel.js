@@ -15,7 +15,7 @@ const WelcomePanel = () => (
         <IconRow IconType="map-marked" Text="Avoid stores by looking for donations and services in your proximity."/>
         <IconRow IconType="filter" Text="Filter donations by zipcode, promixity, date and type."/>
         <div className="btn-container">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScWAksnaPL5l744YVroZl1MwkOc7htodFq2HPIrSfVYaIjyyw/viewform?usp=sf_link" target="_blank">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScRil3UuoVP7W7UtdolmLYDDKX55Q71hnyegOuuqlqcvKq9fw/viewform?usp=sf_link" target="_blank">
                 <ActionButton Text="Help Out" Class="trinary"/>
             </a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScWAksnaPL5l744YVroZl1MwkOc7htodFq2HPIrSfVYaIjyyw/viewform?usp=sf_link" target="_blank">
