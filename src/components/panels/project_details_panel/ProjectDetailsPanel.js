@@ -1,7 +1,6 @@
 import React from 'react';
 import BackToLink from '../.../../../helpers/BackToLink';
 import Header from '../../helpers/Header';
-import SubHeader from '../../helpers/SubHeader';
 import { connect } from 'react-redux';
 
 const ProjectDetailsPanel = (props) => {
@@ -20,21 +19,21 @@ const ProjectDetailsPanel = (props) => {
             {props.project.business_name && 
                 <div className="row">
                     <div className="col">
-                        <SubHeader Text="Business / Organization"/>
+                        <div className="project_details_label">Business / Organization</div>
                         <p>{props.project.business_name}</p>
                     </div>
                 </div>
             }
             <div className="row">
                 <div className="col">
-                    <SubHeader Text="Contact Name"/>
+                    <div className="project_details_label">Contact Name</div>
                     <p>{props.project.name}</p>
                 </div>
             </div>
             {!isRequest() &&
                 <div className="row">
                     <div className="col">
-                        <SubHeader Text="Donation Type"/>
+                        <div className="project_details_label">Donation Type</div>
                         <p>{props.project.type}</p>
                     </div>
                 </div>
@@ -52,13 +51,13 @@ const ProjectDetailsPanel = (props) => {
             </div>
             <div className="row">
                 <div className="col">
-                    <SubHeader Text="Preferred Method Of Contact"/>
+                    <div className="project_details_label">Preferred Method Of Contact</div>
                     <p>{props.project.contact_method}</p>
                 </div>
             </div>
             <div className="row">
                 <div className="col">
-                    <SubHeader Text="Contact"/>
+                    <div className="project_details_label">Contact</div>
                     <p>{props.project.contact_value}</p>
                 </div>
             </div>

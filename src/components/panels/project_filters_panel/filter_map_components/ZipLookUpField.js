@@ -46,8 +46,7 @@ class ZipLookUpField extends Component {
                 <FormControl 
                     aria-label="zipcode lookup" 
                     value={this.props.zipcode}
-                    onChange={(e) => this.setMapCenterWithZipCode(e.target.value)}
-                    autoFocus/>
+                    onChange={(e) => this.setMapCenterWithZipCode(e.target.value)}/>
             </InputGroup>
         );
     }

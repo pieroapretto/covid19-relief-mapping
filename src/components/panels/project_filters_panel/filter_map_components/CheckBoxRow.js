@@ -5,10 +5,9 @@ import { connect } from 'react-redux';
 
 const CheckBoxRow = (props) => {
     const handleCheckedEvent = () => {
-        const marker_type = props.ProjectType;
-        (props.checked) ? 
-            props.dispatch(addTypeFilter(marker_type)) : 
-            props.dispatch(removeTypeFilter(marker_type));
+        (props.checked) ?
+            props.dispatch(removeTypeFilter(props.ProjectType)) :
+            props.dispatch(addTypeFilter(props.ProjectType));
     }
 
     return (
@@ -31,7 +30,7 @@ const CheckBoxRow = (props) => {
 const mapStateToProps = (state, ownProps) => {    
     return {
         ...ownProps,
-        checked: !state.filters.types.length || !state.filters.types.includes(ownProps.ProjectType)
+        checked: state.filters.types.length && state.filters.types.includes(ownProps.ProjectType)
     }
 }
 

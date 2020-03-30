@@ -4,7 +4,8 @@ const filtersReducerDefaultState = {
   lat_lng: { lat: 39.057, lng: -94.594 },
   types: [],
   startDate: null,
-  endDate: null
+  endDate: null,
+  searchText: ''
 };
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -15,6 +16,11 @@ export default (state = filtersReducerDefaultState, action) => {
         zipcode: state.zipcode,
         lat: state.lat,
         lng: state.lng
+      };
+    case 'FILTER_BY_SEARCH_TEXT':
+      return {
+        ...state,
+        searchText: action.search_text
       };
     case 'FILTER_BY_RANGE':
       return {

@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from '../../helpers/Header';
 import SubHeader from '../../helpers/SubHeader';
 import ActionButton from '../../helpers/ActionButton';
 import StatsContainer from './area_stats_components/AreaStatsContainer';
 import BackToLink from '../../helpers/BackToLink';
-import { resetFilters } from '../../../actions/filters';
 import { ProximitySlider, ZipLookUpField, CheckBoxRow, DateRangeSlider } from './filter_map_components/index';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
-
-const ProjectFiltersPanel = (props) => {
+const ProjectFiltersPanel = () => {
     return (
         <div id="project_filters_panel">
             <BackToLink Route="/" Text="Back to home"/>
@@ -34,7 +31,7 @@ const ProjectFiltersPanel = (props) => {
                 <br/>
                 <div className="row">
                     <div className="col">
-                        <SubHeader Text="Types Of Donations &#38; Services"/>
+                        <SubHeader Text="Filter By Types"/>
                         <div className="project-types-container">
                             <CheckBoxRow Label="Household Goods" ProjectType="Household Goods"/>
                             <CheckBoxRow Label="Delivery" ProjectType="Delivery Volunteer"/>
@@ -48,22 +45,14 @@ const ProjectFiltersPanel = (props) => {
                 <Header Text="Stats For This Area"/>
                 <StatsContainer/>
                 <br/>
-                <div className="row">
-                    <div className="col">
-                        <Link to="/projects">
-                            <ActionButton Text="Search"/>
-                        </Link>
-                        <span onClick={() => props.dispatch(resetFilters())}>
-                            <ActionButton Text="Clear Filters" Class="secondary"/>
-                        </span>
-                    </div>
-                </div>
                 <br/>
                 <div className="row">
                     <div className="col">
-                        <span className="pr-3">Would you like to report a issue?</span>
-                        <a href="mailto: pieroprettojs.com">
-                            <ActionButton Text="Report Issue" Class="secondary"/>
+                        <Link to="/projects">
+                            <ActionButton Text="See All Results" Class="primary-large"/>
+                        </Link>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScWAksnaPL5l744YVroZl1MwkOc7htodFq2HPIrSfVYaIjyyw/viewform?usp=sf_link" target="_blank">
+                            <ActionButton Text="Offer Help" Class="secondary"/>
                         </a>
                     </div>
                 </div>
@@ -72,4 +61,4 @@ const ProjectFiltersPanel = (props) => {
     );
 };
 
-export default connect()(ProjectFiltersPanel);
+export default ProjectFiltersPanel;

@@ -1,5 +1,5 @@
 .custom-btn {
-    &.custom-btn-primary {
+    &.custom-btn-primary, &.custom-btn-primary-large {
         font-size: .75rem;
         padding: .375rem 1.5rem;
         background: #509646;
@@ -11,6 +11,9 @@
         margin-top: .5rem;
         margin-bottom: .5rem;
         margin-right: .5rem;
+    }
+    &.custom-btn-primary-large {
+        width: 60%;
     }
     &.custom-btn-secondary {
         background: #ffffff;

@@ -10,12 +10,12 @@ const ProjectCard = ({ Name, BusinessName, Type, TimeStamp, Description }) => {
                 <div className="col">
                     <SubHeader Text={Type}/>
                 </div>
-                <div className="col-3 col-lg-2">
+                <div className="col col-lg-2">
                     <div className="project-type-marker">
                         <ProjectTypeMarker FillClass={Type}/>
                     </div>
                 </div>
-                <div className="col-9 col-lg-10 flush-left">
+                <div className="col-12 col-lg-10 flush-left">
                     <p>
                         <span className="project-card-label">Name:</span>&nbsp;{BusinessName ? BusinessName : Name}</p>
                     <p>

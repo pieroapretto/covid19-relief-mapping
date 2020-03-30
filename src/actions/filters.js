@@ -34,6 +34,12 @@ export const setZipCode = (zipcode) => ({
     zipcode: zipcode
 });
 
+// FILTER_BY_SEARCH_TEXT
+export const setSearchText = (search_text) => ({
+    type: 'FILTER_BY_SEARCH_TEXT',
+    search_text: search_text
+});
+
 // SET_LAT_LNG
 export const setLatLngCoordinates = (latLngCoordinates) => ({
     type: 'SET_LAT_LNG',

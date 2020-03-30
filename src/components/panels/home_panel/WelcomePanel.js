@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../helpers/Header';
 import SubHeader from '../../helpers/SubHeader';
 import IconRow from './home_panel_components/IconRow';
 import ActionButton from '../../helpers/ActionButton';
@@ -23,7 +22,7 @@ const WelcomePanel = () => (
                 <ActionButton Text="Ask For Help"/>
             </a>
             <Link to="/filters">
-                <ActionButton Text="See Who's Helping" Class="secondary"/>
+                <ActionButton Text="See Map" Class="secondary"/>
             </Link>
         </div>
   </div>

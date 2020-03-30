@@ -4,8 +4,8 @@ import { selectProjectLocations } from '../../../../selectors/locations';
 
 const StatsContainer = (props) => (
     <div className="stats-container text-center">
-        <p><em>{props.number_of_donations} donation(s) in this area.</em></p>
-        <p><em>{props.number_of_donee} request(s) in this area.</em></p>
+        <p><em>{props.number_of_donations} people donating in this area.</em></p>
+        <p><em>{props.number_of_donee} requests for aid in this area.</em></p>
     </div>
 );
 
