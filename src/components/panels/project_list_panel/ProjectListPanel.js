@@ -35,9 +35,22 @@ class ProjectListPanel extends Component {
                         </InputGroup>
                     </div>
                 </div>
-                {Array.isArray(this.props.locations) && this.props.locations.length ?
+                {this.props.donee_locations.length || this.props.donation_locations.length ?
                     <div className="project-list">
-                        {this.props.locations.map(project => {
+                        {this.props.donation_locations.map(project => {
+                            return (
+                                <div onClick={() => this.dispatchProjectSummary(project)} key={project.key}>
+                                    <ProjectCard
+                                            key={project.key}
+                                            Name={project.name} 
+                                            Type={project.type}
+                                            BusinessName={project.business_name}
+                                            TimeStamp={project.timestamp}
+                                            Description={project.description}/>
+                                </div>
+                            );
+                        })}
+                        {this.props.donee_locations.map(project => {
                             return (
                                 <div onClick={() => this.dispatchProjectSummary(project)} key={project.key}>
                                     <ProjectCard
@@ -64,7 +77,8 @@ class ProjectListPanel extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-        locations: state.donation_locations ? selectProjectLocations(state.donation_locations, state.filters) : [],
+        donation_locations: state.donation_locations ? selectProjectLocations(state.donation_locations, state.filters) : [],
+        donee_locations: state.donee_locations ? selectProjectLocations(state.donee_locations, state.filters) : [],
         selected_project: state.selected_project || {},
         search_text: state.filters.search_text
     }
