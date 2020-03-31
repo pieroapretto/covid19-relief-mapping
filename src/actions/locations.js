@@ -14,6 +14,8 @@ export const addLocations = (type, locations) => ({
         contact_method: location.contact_method,
         phone: location.phone,
         timestamp: setTimeValue(location.timestamp),
+        street_address: location.street_address,
+        display_address: location.display_address,
         email: location.email,
         facebook_url: location.facebook_url,
         description: location.description,

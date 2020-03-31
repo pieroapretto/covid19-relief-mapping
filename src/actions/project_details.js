@@ -14,6 +14,8 @@ export const selectProject = (selected_project) => ({
     date_string: getDateStringValue(selected_project.timestamp),
     time: selected_project.timestamp,
     description: selected_project.description,
+    street_address: selected_project.street_address,
+    display_address: selected_project.display_address || null,
     business_name: selected_project.business_name || null
   }
 });

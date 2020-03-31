@@ -7,7 +7,9 @@ const detailsReducerDefaultState = {
     date_string: null,
     time: null,
     description: null,
-    business_name: null
+    business_name: null,
+    street_address: null,
+    display_address: null
 };
   
 export default (state = detailsReducerDefaultState, action) => {
