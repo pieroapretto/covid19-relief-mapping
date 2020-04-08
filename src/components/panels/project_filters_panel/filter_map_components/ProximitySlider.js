@@ -16,19 +16,16 @@ const dotStyle = {
     'marginLeft': '-1px',
 };
 
-const displayProximityValueToolTip = (sliderProps) => {
-	const { value, dragging, index, key, className, disabled, offset, prefixCls } = sliderProps;
-	return (
-		<Tooltip
-			prefixCls="rc-slider-tooltip"
-			overlay={value}
-			visible={dragging}
-			placement="top"
-			key={index}>
-			<Handle value={value} index={index} key={key} className={className} disabled={disabled} offset={offset} prefixCls={prefixCls}/>
-		</Tooltip>
-	);
-};
+const displayProximityValueToolTip = ({ value, dragging, index, key, className, disabled, offset, prefixCls }) => (
+	<Tooltip
+		prefixCls="rc-slider-tooltip"
+		overlay={value}
+		visible={dragging}
+		placement="top"
+		key={index}>
+		<Handle value={value} index={index} key={key} className={className} disabled={disabled} offset={offset} prefixCls={prefixCls}/>
+	</Tooltip>
+);
 
 class ProximitySlider extends Component {
 	constructor(props) {

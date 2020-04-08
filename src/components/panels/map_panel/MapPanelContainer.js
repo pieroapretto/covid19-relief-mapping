@@ -7,7 +7,7 @@ import { withRouter} from 'react-router-dom';
 import { selectProjectLocations } from '../../../selectors/locations';
 import { GoogleMapsAPIKey } from '../../../../private/google_maps';
 import uuid from 'uuid';
-import { ProjectTypeCSSMap } from '../../../utilities/style_utilities';
+import { ProjectTypePropsMap } from '../../../utilities/project_types';
 
 const mapStateToProps = (state, ownProps) => {
     return { 
@@ -19,10 +19,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const MyMapComponent = connect(mapStateToProps)(withScriptjs(withGoogleMap((props) => {
+    const { map_state, donation_locations, donee_locations } = props;
+
     useEffect(() => {
         props.dispatch(getDonationLocations());
         props.dispatch(getDoneeLocations());
-      }, []);
+    }, []);
 
     const dispatchProjectSummary = (location) => {
         props.dispatch(selectProject(location));
@@ -32,12 +34,12 @@ const MyMapComponent = connect(mapStateToProps)(withScriptjs(withGoogleMap((prop
     return (
         <GoogleMap
             key={uuid()}
-            defaultZoom={props.map_state.zoom}
-            defaultCenter={props.map_state.center}>
-            {props.donation_locations.map(location => {
+            defaultZoom={map_state.zoom}
+            defaultCenter={map_state.center}>
+            {donation_locations.map(location => {
                 const myLatlng = {lat: location.lat, lng: location.lng};
-                const iconType = ProjectTypeCSSMap[location.type] || 'default';
-                const iconTypeImg = `/images/markers/${iconType}-marker.svg`;
+                const iconTypeColor = ProjectTypePropsMap[location.type] ? ProjectTypePropsMap[location.type].color : 'default';
+                const iconTypeImg = `/images/markers/${iconTypeColor}-marker.svg`;
                 return <Marker
                             key={location.key}
                             icon={iconTypeImg}
@@ -45,7 +47,7 @@ const MyMapComponent = connect(mapStateToProps)(withScriptjs(withGoogleMap((prop
                             position={myLatlng}>
                         </Marker>
             })}
-            {props.donee_locations.map(location => {
+            {donee_locations.map(location => {
                 const myLatlng = {lat: location.lat, lng: location.lng};
                 return <Marker
                             key={location.key}

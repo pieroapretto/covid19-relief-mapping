@@ -15,21 +15,16 @@ const dotStyle = {
     'marginLeft': '-1px',
 };
 
-const handleDateRangeChange = (props) => {
-  const { value, dragging, index, key, className, disabled, offset, prefixCls} = props;
-
-  return (
+const handleDateRangeChange = ({ value, dragging, index, key, className, disabled, offset, prefixCls }) => (
     <Tooltip
       prefixCls="rc-slider-tooltip"
       overlay={'Posted ' + value + ' days ago'}
       visible={dragging}
       placement="top"
-      key={index}
-    >
+      key={index}>
       <Handle value={value} index={index} key={key} className={className} disabled={disabled} offset={offset} prefixCls={prefixCls} />
     </Tooltip>
-  );
-};
+);
 
 const DateRangeSlider = (props) => {
 	const state = {

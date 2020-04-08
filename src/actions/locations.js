@@ -1,5 +1,6 @@
 import uuid from 'uuid';
 import { firebase_service }  from '../services/firebase_service';
+import { ProjectTypePropsMap } from '../utilities/project_types';
 
 // 'ADD_DONATIONS'
 // 'ADD_DONEES'
@@ -10,7 +11,7 @@ export const addLocations = (type, locations) => ({
         key: uuid(),
         _id: location._id,
         name: location.name,
-        type: (type === 'ADD_DONATIONS') ? location.type : 'Request',
+        type: (type === 'ADD_DONATIONS' && ProjectTypePropsMap[location.type]) ? ProjectTypePropsMap[location.type].value : 'Request',
         contact_method: location.contact_method,
         phone: location.phone,
         timestamp: setTimeValue(location.timestamp),

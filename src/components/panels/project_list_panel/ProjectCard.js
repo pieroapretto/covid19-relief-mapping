@@ -2,13 +2,14 @@ import React from 'react';
 import ProjectTypeMarker from '../../helpers/projectTypeMarker';
 import SubHeader from '../../helpers/SubHeader';
 import { getDateStringValue } from '../../../actions/project_details';
+import { ProjectTypePropsMap } from '../../../utilities/project_types';
 
 const ProjectCard = ({ Name, BusinessName, Type, TimeStamp, Description }) => {
     return (
         <div className="project-card">
             <div className="row">
                 <div className="col">
-                    <SubHeader Text={Type}/>
+                    <SubHeader Text={ProjectTypePropsMap[Type].label}/>
                 </div>
                 <div className="col col-lg-2">
                     <div className="project-type-marker">

@@ -33,19 +33,19 @@ const ProjectFiltersPanel = () => {
                     <div className="col">
                         <SubHeader Text="Filter By Types"/>
                         <div className="project-types-container">
-                            <CheckBoxRow Label="Household Goods" ProjectType="Household Goods"/>
-                            <CheckBoxRow Label="Delivery" ProjectType="Delivery Volunteer"/>
-                            <CheckBoxRow Label="Food" ProjectType="Food"/>
-                            <CheckBoxRow Label="Services" ProjectType="Service"/>
-                            <CheckBoxRow Label="Requests" ProjectType="Request"/>
+                            <CheckBoxRow Label="Household Goods" ProjectType="household"/>
+                            <CheckBoxRow Label="Delivery Volunteers" ProjectType="delivery"/>
+                            <CheckBoxRow Label="Food Pantries/Meal Assistance" ProjectType="food"/>
+                            <CheckBoxRow Label="Jobs/Financial Assistance" ProjectType="job"/>
+                            <CheckBoxRow Label="Resources for Children" ProjectType="children"/>
+                            <CheckBoxRow Label="Services" ProjectType="service"/>
+                            <CheckBoxRow Label="Requests" ProjectType="request"/>
                         </div>
                     </div>
                 </div>
                 <br/>
                 <Header Text="Stats For Your Area"/>
                 <StatsContainer/>
-                <br/>
-                <br/>
                 <div className="row">
                     <div className="col">
                         <Link to="/projects">

@@ -4,24 +4,26 @@ import { removeTypeFilter, addTypeFilter } from '../../../../actions/filters';
 import { connect } from 'react-redux';
 
 const CheckBoxRow = (props) => {
+    const { Checked, Label, ProjectType } = props;
+
     const handleCheckedEvent = () => {
-        (props.checked) ?
-            props.dispatch(removeTypeFilter(props.ProjectType)) :
-            props.dispatch(addTypeFilter(props.ProjectType));
+        (Checked) ?
+            props.dispatch(removeTypeFilter(ProjectType)) :
+            props.dispatch(addTypeFilter(ProjectType));
     }
 
     return (
         <div className="checkbox-container" onClick={handleCheckedEvent}>
-            <input className="hidden-checkbox" type="checkbox" defaultChecked={props.checked}/>
+            <input className="hidden-checkbox" type="checkbox" defaultChecked={Checked}/>
             <div className="styled-checkbox">
-                <svg className={`icon ${props.checked ? "show-checked" : "hide-checked"}`}
+                <svg className={`icon ${Checked ? "show-checked" : "hide-checked"}`}
                      viewBox="0 0 24 24" >
                     <polyline points="20 6 9 17 4 12" />
                 </svg>
             </div>
-            <span className="style-span">{props.Label}</span>
+            <span className="style-span">{Label}</span>
             <span className="project-type-marker">
-                <ProjectTypeMarker FillClass={props.ProjectType}/> 
+                <ProjectTypeMarker FillClass={ProjectType}/> 
             </span>
         </div>
     );
@@ -30,7 +32,7 @@ const CheckBoxRow = (props) => {
 const mapStateToProps = (state, ownProps) => {    
     return {
         ...ownProps,
-        checked: state.filters.types.length && state.filters.types.includes(ownProps.ProjectType)
+        Checked: state.filters.types.length && state.filters.types.includes(ownProps.ProjectType)
     }
 }
 

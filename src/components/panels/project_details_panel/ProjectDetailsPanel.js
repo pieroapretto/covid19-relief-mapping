@@ -3,11 +3,13 @@ import BackToLink from '../.../../../helpers/BackToLink';
 import Header from '../../helpers/Header';
 import ActionButton from '../../helpers/ActionButton';
 import { connect } from 'react-redux';
+import { ProjectTypePropsMap } from '../../../utilities/project_types';
 
-const ProjectDetailsPanel = (props) => {
-    const isRequest = (props.project.type && props.project.type === 'Request');
-    const hasBusinessName = (props.project.business_name && props.project.business_name.length);
-    const canDisplayAddress = (props.project.street_address && props.project.display_address === "Yes");
+const ProjectDetailsPanel = ({ project }) => {
+    const { type, business_name, street_address, display_address, name, description, contact_method, contact_value  } = project;
+    const isRequest = (type && type === 'Request');
+    const hasBusinessName = (business_name && business_name.length);
+    const canDisplayAddress = (street_address && display_address === "Yes");
 
     return (
         <div className="project_details_container">
@@ -21,14 +23,14 @@ const ProjectDetailsPanel = (props) => {
                 <div className="row">
                     <div className="col">
                         <div className="project_details_label">Business / Organization</div>
-                        <p>{props.project.business_name}</p>
+                        <p>{business_name}</p>
                     </div>
                 </div>
             }
             {!hasBusinessName && <div className="row">
                 <div className="col">
                         <div className="project_details_label">Contact Name</div>
-                        <p>{props.project.name}</p>
+                        <p>{name}</p>
                     </div>
                 </div>
             }
@@ -36,7 +38,7 @@ const ProjectDetailsPanel = (props) => {
                 <div className="row">
                     <div className="col">
                         <div className="project_details_label">Street Address</div>
-                        <p>{props.project.street_address}</p>
+                        <p>{street_address}</p>
                     </div>
                 </div>
             }
@@ -44,14 +46,14 @@ const ProjectDetailsPanel = (props) => {
                 <div className="row">
                     <div className="col">
                         <div className="project_details_label">Donation Type</div>
-                        <p>{props.project.type}</p>
+                        <p>{ProjectTypePropsMap[type].label}</p>
                     </div>
                 </div>
             }
             <div className="row">
                 <div className="col">
                     <Header Text="Description"/>
-                    <p>{props.project.description}</p>
+                    <p>{description}</p>
                 </div>
             </div>
             <div className="row">
@@ -62,13 +64,13 @@ const ProjectDetailsPanel = (props) => {
             <div className="row">
                 <div className="col">
                     <div className="project_details_label">Preferred Method Of Contact</div>
-                    <p>{props.project.contact_method}</p>
+                    <p>{contact_method}</p>
                 </div>
             </div>
             <div className="row">
                 <div className="col">
                     <div className="project_details_label">Contact</div>
-                    <p>{props.project.contact_value}</p>
+                    <p>{contact_value}</p>
                 </div>
             </div>
             <div className="row">
