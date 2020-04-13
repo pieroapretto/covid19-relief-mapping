@@ -8,6 +8,8 @@ const IconRow = ({ Text, IconType }) => (
                 switch (IconType) {
                     case 'filter':
                         return <img src="images/filter.svg" alt="filter icon"/>;
+                    case 'volunteer':
+                        return <img src="images/icons/heart-circle-duotone.svg" alt="heart icon"/>;
                     case 'map-marked':
                         return <img src="images/map-marked.svg" alt="map marked icon"/>;
                     default:

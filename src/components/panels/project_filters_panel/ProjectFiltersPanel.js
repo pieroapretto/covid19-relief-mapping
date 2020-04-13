@@ -51,9 +51,6 @@ const ProjectFiltersPanel = () => {
                         <Link to="/projects">
                             <ActionButton Text="See All Results" Class="primary-large"/>
                         </Link>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScRil3UuoVP7W7UtdolmLYDDKX55Q71hnyegOuuqlqcvKq9fw/viewform?usp=sf_link" target="_blank">
-                            <ActionButton Text="Offer Help" Class="secondary"/>
-                        </a>
                     </div>
                 </div>
             </div>

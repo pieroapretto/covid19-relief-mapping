@@ -8,21 +8,21 @@ const WelcomePanel = () => (
     <div id="welcome_panel_content">
         <h1>Help Your Neighbors Affected By COVID-19</h1>
         <div className="block-text-container">
-            <p><a href="https://forms.gle/fwSfqDd87EkQFHn78" target="_blank">Sign up</a> to help your neighbors in quarantine if you have extra food, household goods, services or time to make a non-contact delivery. If you are a member of the vulnerable population or need assistance, sign up to <a href="https://forms.gle/cNHiYW5ep9Qx4r1x7" target="_blank">request aid</a>.</p>
+            <p><a href="https://forms.gle/fwSfqDd87EkQFHn78" target="_blank">Sign up</a> to help your neighbors in needs. If you are activately involved in COVID-19 relief efforts, recruit volunteers or financial assistance to <a href="https://forms.gle/hY6FHftouNUkiuyU8" target="_blank">aid your cause</a>.</p>
         </div>
         <SubHeader Text="Here's How It Works"/>
+        <IconRow IconType="volunteer" Text="Volunteer to help based on your skill set or what you can give."/>
         <IconRow IconType="donation" Text="Post a donation for non-contact pickup or delivery in your area."/>
-        <IconRow IconType="map-marked" Text="Avoid stores by looking for donations and services in your proximity."/>
-        <IconRow IconType="filter" Text="Filter donations by zipcode, promixity, date and type."/>
+        <IconRow IconType="filter" Text="Search for help in your area by zipcode, promixity, date and type."/>
         <div className="btn-container">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScRil3UuoVP7W7UtdolmLYDDKX55Q71hnyegOuuqlqcvKq9fw/viewform?usp=sf_link" target="_blank">
-                <ActionButton Text="Help Out" Class="trinary"/>
+            <a href="https://forms.gle/BzRNsaxVkRodG4vPA" target="_blank">
+                <ActionButton Text="Volunteer To Help" Class="trinary-large"/>
             </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScWAksnaPL5l744YVroZl1MwkOc7htodFq2HPIrSfVYaIjyyw/viewform?usp=sf_link" target="_blank">
-                <ActionButton Text="Request Help"/>
+            <a href="https://forms.gle/s8CkMbssBupfsvxVA" target="_blank">
+                <ActionButton Text="Donate" Class="primary-large"/>
             </a>
             <Link to="/filters">
-                <ActionButton Text="See Requests &#38; Donations" Class="secondary"/>
+                <ActionButton Text="Find Local Assistance" Class="secondary-large"/>
             </Link>
         </div>
   </div>
