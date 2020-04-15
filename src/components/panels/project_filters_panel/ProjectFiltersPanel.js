@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from '../../helpers/Header';
 import SubHeader from '../../helpers/SubHeader';
 import ActionButton from '../../helpers/ActionButton';
 import StatsContainer from './area_stats_components/AreaStatsContainer';
 import BackToLink from '../../helpers/BackToLink';
 import { ProximitySlider, ZipLookUpField, CheckBoxRow, DateRangeSlider } from './filter_map_components/index';
-import { Link } from 'react-router-dom';
+import { setSearchText } from '../../../actions/filters';
 
-const ProjectFiltersPanel = () => {
+const ProjectFiltersPanel = (props) => {
+    useEffect(() => {
+        props.dispatch(setSearchText(''));
+    });
+
     return (
         <div id="project_filters_panel">
             <BackToLink Route="/" Text="Back to home"/>
@@ -58,4 +64,4 @@ const ProjectFiltersPanel = () => {
     );
 };
 
-export default ProjectFiltersPanel;
+export default connect()(ProjectFiltersPanel);

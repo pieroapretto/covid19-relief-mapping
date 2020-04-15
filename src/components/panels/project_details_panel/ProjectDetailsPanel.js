@@ -7,7 +7,7 @@ import { ProjectTypePropsMap } from '../../../utilities/project_types';
 
 const ProjectDetailsPanel = ({ project }) => {
     const { type, business_name, street_address, display_address, name, description, contact_method, contact_value  } = project;
-    const isRequest = (type && type === 'Request');
+    const isRequest = (type && type === 'request');
     const hasBusinessName = (business_name && business_name.length);
     const canDisplayAddress = (street_address && display_address === "Yes");
 

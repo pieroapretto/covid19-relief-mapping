@@ -2,7 +2,10 @@ import withinProximity from "./promixity_selector";
 
 // search text filter value
 const hasSearchTextMatch = (location, searchText) => {
-  return !searchText || location.name.toLowerCase().includes(searchText) || location.description.toLowerCase().includes(searchText);
+  const location_name = location.name.toLowerCase();
+  const location_info = location.description.toLowerCase();
+
+  return !searchText || location_name.includes(searchText) || location_info.includes(searchText);
 };
 
 // date range slider value: start date

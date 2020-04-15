@@ -7,11 +7,12 @@ import { ProjectTypePropsMap } from '../utilities/project_types';
 export const addLocations = (type, locations) => ({
   type: type,
   locations: locations.map(location => {
+      const location_type = ProjectTypePropsMap[location.type];
       return {
         key: uuid(),
         _id: location._id,
         name: location.name,
-        type: (type === 'ADD_DONATIONS' && ProjectTypePropsMap[location.type]) ? ProjectTypePropsMap[location.type].value : 'Request',
+        type: (type === 'ADD_DONATIONS' && location_type) ? location_type.value : 'request',
         contact_method: location.contact_method,
         phone: location.phone,
         timestamp: setTimeValue(location.timestamp),
