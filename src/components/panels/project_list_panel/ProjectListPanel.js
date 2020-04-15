@@ -23,7 +23,7 @@ class ProjectListPanel extends Component {
         return (
             <div id="project_list_container">
                 <BackToLink Route="/filters" Text="Back to filters"/>
-                <Header Text="Projects That Match Your Search"/>
+                <Header Text="Results That Match Your Search"/>
                 <div className="row">
                     <div className="col">
                         <InputGroup size="sm" className="my-2 project_list_filter">

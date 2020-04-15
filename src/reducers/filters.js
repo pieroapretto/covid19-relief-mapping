@@ -14,8 +14,7 @@ export default (state = filtersReducerDefaultState, action) => {
       return {
         ...filtersReducerDefaultState,
         zipcode: state.zipcode,
-        lat: state.lat,
-        lng: state.lng
+        lat_lng: state.lat_lng
       };
     case 'FILTER_BY_SEARCH_TEXT':
       return {
