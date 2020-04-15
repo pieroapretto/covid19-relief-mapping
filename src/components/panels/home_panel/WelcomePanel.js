@@ -23,7 +23,7 @@ const WelcomePanel = (props) => {
             <IconRow IconType="filter" Text="Search for help in your area by zipcode, promixity, date and type."/>
             <div className="btn-container">
                 <a href="https://forms.gle/BzRNsaxVkRodG4vPA" target="_blank">
-                    <ActionButton Text="Volunteer To Help" Class="trinary-large"/>
+                    <ActionButton Text="Volunteer" Class="trinary-large"/>
                 </a>
                 <a href="https://forms.gle/s8CkMbssBupfsvxVA" target="_blank">
                     <ActionButton Text="Donate" Class="primary-large"/>
