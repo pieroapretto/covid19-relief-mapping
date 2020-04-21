@@ -22,9 +22,6 @@ const ProjectCard = ({ Name, BusinessName, Type, TimeStamp, Description }) => {
                     <p>
                         <span className="project-card-label">Description:</span>&nbsp;{Description.substring(0, 120) + "..."}
                     </p>
-                    <p>
-                        <em>Posted on {getDateStringValue(TimeStamp)}</em>
-                    </p>
                 </div>
             </div>
             <hr/>

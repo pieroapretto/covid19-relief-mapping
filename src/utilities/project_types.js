@@ -73,5 +73,10 @@ export const ProjectTypePropsMap = {
         label: 'Resources for Children',
         value: 'children',
         color: 'pink'
+    },
+    'testing': {
+        label: 'Testing Site',
+        value: 'testing',
+        color: 'yellow'
     }
 };

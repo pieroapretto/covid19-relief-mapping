@@ -8,7 +8,6 @@ import { fetchGeoData, configGeoDataProps, setGeoDataCookies } from '../../../..
 import { connect } from 'react-redux';
 
 const ZipLookUpField = (props) => {
-
     useEffect(() => {
         fetchGeoData().then(geo_data => {
             configGeoDataProps(geo_data).then(geo_data_props => {
