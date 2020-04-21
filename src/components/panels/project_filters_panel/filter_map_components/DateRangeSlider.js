@@ -28,9 +28,9 @@ const handleDateRangeChange = ({ value, dragging, index, key, className, disable
 
 const DateRangeSlider = (props) => {
 	const state = {
-		maxValue: 21,
+		maxValue: 60,
 		minValue: 0,
-		steps: 7
+		steps: 15
 	}
 
 	const getMarks = (minValue, maxValue) => {

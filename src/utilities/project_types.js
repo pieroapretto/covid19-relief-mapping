@@ -77,6 +77,6 @@ export const ProjectTypePropsMap = {
     'testing': {
         label: 'Testing Site',
         value: 'testing',
-        color: 'yellow'
+        color: 'royal-blue'
     }
 };

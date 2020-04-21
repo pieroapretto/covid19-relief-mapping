@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../../helpers/Header';
@@ -8,8 +8,12 @@ import StatsContainer from './area_stats_components/AreaStatsContainer';
 import BackToLink from '../../helpers/BackToLink';
 import { ProximitySlider, ZipLookUpField, CheckBoxRow, DateRangeSlider } from './filter_map_components/index';
 import { setSearchText } from '../../../actions/filters';
+import { Collapse } from 'react-bootstrap';
 
 const ProjectFiltersPanel = (props) => {
+    const [collpaseState, setCollpaseState] = useState(false);
+    const collapseText = collpaseState ? 'Collapse' : 'Expand'
+
     useEffect(() => {
         props.dispatch(setSearchText(''));
     });
@@ -30,11 +34,14 @@ const ProjectFiltersPanel = (props) => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <SubHeader Text="Date Posted"/>
-                        <DateRangeSlider/>
+                        <div className="date-range-container" onClick={() => setCollpaseState(!collpaseState)} >
+                            <SubHeader Text={"Date Posted [" + collapseText + "]"}/>
+                        </div>
+                        <Collapse in={collpaseState}>
+                            <div><DateRangeSlider/></div>  
+                        </Collapse>
                     </div>
                 </div>
-                <br/>
                 <div className="row">
                     <div className="col">
                         <SubHeader Text="Filter By Types"/>
