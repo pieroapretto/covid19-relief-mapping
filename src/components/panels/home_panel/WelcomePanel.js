@@ -18,7 +18,7 @@ const WelcomePanel = (props) => {
                 <p><a href="https://forms.gle/fwSfqDd87EkQFHn78" target="_blank">Sign up</a> to help your neighbors in need. If you are activately involved in COVID-19 relief efforts, recruit volunteers or financial assistance to <a href="https://forms.gle/PuchtZrmHwCJ1GNs9" target="_blank">aid your cause</a>.</p>
             </div>
             <SubHeader Text="Here's How It Works"/>
-            <IconRow IconType="volunteer" Text="Volunteer to help based on your skill set or what you can give."/>
+            <IconRow IconType="volunteer" Text="Request help for you or an organization in need."/>
             <IconRow IconType="donation" Text="Post a donation for non-contact pickup or delivery in your area."/>
             <IconRow IconType="filter" Text="Search for help in your area by zipcode, promixity, date and type."/>
             <div className="btn-container">
