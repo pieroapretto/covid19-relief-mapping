@@ -85,7 +85,6 @@ const ProjectDetailsPanel = ({ project }) => {
     );
 }
 
-
 const mapStateToProps = (state) => {
     return { project: state.selected_project || {} }
 };
