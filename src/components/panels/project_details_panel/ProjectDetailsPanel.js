@@ -5,8 +5,7 @@ import ActionButton from '../../helpers/ActionButton';
 import { connect } from 'react-redux';
 import { ProjectTypePropsMap } from '../../../utilities/project_types';
 
-const ProjectDetailsPanel = ({ project }) => {
-    const { type, business_name, street_address, display_address, name, description, contact_method, contact_value  } = project;
+const ProjectDetailsPanel = ({ type, business_name, street_address, display_address, name, description, contact_method, contact_value }) => {
     const isRequest = (type && type === 'request');
     const hasBusinessName = (business_name && business_name.length);
     const canDisplayAddress = (street_address && display_address === "Yes");
@@ -27,8 +26,9 @@ const ProjectDetailsPanel = ({ project }) => {
                     </div>
                 </div>
             }
-            {!hasBusinessName && <div className="row">
-                <div className="col">
+            {!hasBusinessName && 
+                <div className="row">
+                    <div className="col">
                         <div className="project_details_label">Contact Name</div>
                         <p>{name}</p>
                     </div>
