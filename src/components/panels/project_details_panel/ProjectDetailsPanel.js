@@ -86,7 +86,7 @@ const ProjectDetailsPanel = ({ type, business_name, street_address, display_addr
 }
 
 const mapStateToProps = (state) => {
-    return { project: state.selected_project || {} }
+    return state.selected_project || {}
 };
 
 export default connect(mapStateToProps)(ProjectDetailsPanel);
