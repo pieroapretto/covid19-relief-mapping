@@ -1,8 +1,8 @@
 # COVID-19 Relief Mapping Application
 
-![Desktop view](public\images\screenshots\Screenshot_1.png)
+![Desktop view](/public/images/screenshots/Screenshot_1.png)
 
-![Mobile view](public\images\screenshots\Screenshot_2.png)
+![Mobile view](/public/images/screenshots/Screenshot_2.png)
 
 ## Mission
 
