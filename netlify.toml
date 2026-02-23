@@ -5,6 +5,9 @@
   # Directory that contains the deploy-ready HTML files and assets
   publish = "public"
 
+  # Environment variables for build
+  environment = { NODE_VERSION = "16.20.2" }
+
 # Redirect rules for single-page application
 [[redirects]]
   from = "/*"
