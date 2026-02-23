@@ -13,20 +13,22 @@ const WelcomePanel = (props) => {
 
     return (
         <div id="welcome_panel_content">
-            <h1>Help Your Neighbors During This Crisis</h1>
+            <h1>Help Your Neighbors, Strengthen Your Community</h1>
             <div className="block-text-container">
-                <p><a href="https://forms.gle/fwSfqDd87EkQFHn78" target="_blank">Sign up</a> to help your neighbors in need. If you are activately involved in COVID-19 relief efforts, recruit volunteers or financial assistance to <a href="https://forms.gle/PuchtZrmHwCJ1GNs9" target="_blank">aid your cause</a>.</p>
+                {/* TODO: Update these Google Form URLs with new neighborly-focused forms */}
+                <p><a href="https://forms.gle/fwSfqDd87EkQFHn78" target="_blank">Sign up</a> to help your neighbors. Neighborly brings back the community spirit of the 1950s-1980s, when neighbors looked out for each other. Whether you need help or have something to offer, connecting is easy. <a href="https://forms.gle/PuchtZrmHwCJ1GNs9" target="_blank">Join your community</a> today.</p>
             </div>
             <SubHeader Text="Here's How It Works"/>
-            <IconRow IconType="volunteer" Text="Request help for you or an organization in need."/>
-            <IconRow IconType="donation" Text="Post a donation for non-contact pickup or delivery in your area."/>
-            <IconRow IconType="filter" Text="Search for help in your area by zipcode, promixity, date and type."/>
+            <IconRow IconType="volunteer" Text="Request help from neighbors for tasks, services, or resources you need."/>
+            <IconRow IconType="donation" Text="Offer your services, skills, or extra resources to help neighbors for free."/>
+            <IconRow IconType="filter" Text="Search for help in your area by zipcode, proximity, date and type."/>
             <div className="btn-container">
+                {/* TODO: Update these Google Form URLs with new neighborly-focused forms */}
                 <a href="https://forms.gle/PuchtZrmHwCJ1GNs9" target="_blank">
                     <ActionButton Text="Request Help" Class="trinary-large"/>
                 </a>
                 <a href="https://forms.gle/s8CkMbssBupfsvxVA" target="_blank">
-                    <ActionButton Text="Donate" Class="primary-large"/>
+                    <ActionButton Text="Offer Help" Class="primary-large"/>
                 </a>
                 <Link to="/filters">
                     <ActionButton Text="Find Local Assistance" Class="secondary-large"/>

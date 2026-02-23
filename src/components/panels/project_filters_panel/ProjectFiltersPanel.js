@@ -46,7 +46,6 @@ const ProjectFiltersPanel = (props) => {
                     <div className="col">
                         <SubHeader Text="Filter By Types"/>
                         <div className="project-types-container">
-                            <CheckBoxRow Label="Test Sites" ProjectType="testing"/>
                             <CheckBoxRow Label="Household Goods" ProjectType="household"/>
                             <CheckBoxRow Label="Delivery Volunteers" ProjectType="delivery"/>
                             <CheckBoxRow Label="Food Pantries/Meal Assistance" ProjectType="food"/>
