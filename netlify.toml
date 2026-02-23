@@ -1,0 +1,23 @@
+[build]
+  # Build command
+  command = "yarn install && yarn run build:prod"
+
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "public"
+
+# Redirect rules for single-page application
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (you'll set these in Netlify dashboard)
+# Required Firebase configuration:
+# - FIREBASE_API_KEY
+# - FIREBASE_AUTH_DOMAIN
+# - FIREBASE_DATABASE_URL
+# - FIREBASE_PROJECT_ID
+# - FIREBASE_STORAGE_BUCKET
+# - FIREBASE_MESSAGING_SENDER_ID
+# - FIREBASE_APP_ID
+# - FIREBASE_MEASUREMENT_ID
