@@ -6,8 +6,9 @@
   publish = "public"
 
   # Environment variables for build
-  # Using Firebase v9 compat which doesn't require old grpc package
-  environment = { NODE_VERSION = "16.20.2", NPM_FLAGS = "--legacy-peer-deps" }
+  # Using Firebase v8 which doesn't require old grpc package
+  # Exclude client bundle from secrets scanning - Firebase keys are meant to be public in client apps
+  environment = { NODE_VERSION = "16.20.2", NPM_FLAGS = "--legacy-peer-deps", SECRETS_SCAN_OMIT_PATHS = "public/dist/bundle.js" }
 
 # Redirect rules for single-page application
 [[redirects]]
