@@ -1,6 +1,6 @@
 [build]
-  # Build command
-  command = "yarn install && yarn run build:prod"
+  # Build command - using npm instead of yarn to avoid private registry issues
+  command = "npm install --legacy-peer-deps && npm run build:prod"
 
   # Directory that contains the deploy-ready HTML files and assets
   publish = "public"
