@@ -1,12 +1,12 @@
 [build]
   # Build command - using npm instead of yarn to avoid private registry issues
-  command = "npm install --legacy-peer-deps && npm run build:prod"
+  command = "npm run build:prod"
 
   # Directory that contains the deploy-ready HTML files and assets
   publish = "public"
 
   # Environment variables for build
-  environment = { NODE_VERSION = "16.20.2" }
+  environment = { NODE_VERSION = "16.20.2", NPM_FLAGS = "--legacy-peer-deps" }
 
 # Redirect rules for single-page application
 [[redirects]]
