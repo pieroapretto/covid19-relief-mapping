@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build:dev": "webpack",
-    "build:prod": "webpack -p --env production",
+    "build:prod": "webpack --env production",
     "dev-server": "webpack-dev-server",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod"
