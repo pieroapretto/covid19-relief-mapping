@@ -1,8 +1,8 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import { firebaseConfig } from '../../private/firebase';
 
-import 'firebase/database';
-import 'firebase/analytics';
+import 'firebase/compat/database';
+import 'firebase/compat/analytics';
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

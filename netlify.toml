@@ -6,6 +6,7 @@
   publish = "public"
 
   # Environment variables for build
+  # Using Firebase v9 compat which doesn't require old grpc package
   environment = { NODE_VERSION = "16.20.2", NPM_FLAGS = "--legacy-peer-deps" }
 
 # Redirect rules for single-page application
