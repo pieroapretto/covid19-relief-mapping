@@ -36,7 +36,7 @@ const WelcomePanel = (props) => {
 
     return (
         <div id="welcome_panel_content">
-            <h1>Help Your Neighbors, Strengthen Your Community</h1>
+            <h2>Help Your Neighbors, Strengthen Your Community</h2>
             <div className="block-text-container">
                 {/* TODO: Update these Google Form URLs with new neighborly-focused forms */}
                 <p><a href="https://forms.gle/fwSfqDd87EkQFHn78" target="_blank">Sign up</a> to help your neighbors. Neighborly brings back the community spirit we enjoyed in the past, when neighbors looked out for each other. Whether you need help or have something to offer, connecting is easy. <a href="https://forms.gle/PuchtZrmHwCJ1GNs9" target="_blank">Join your community</a> today.</p>
@@ -50,6 +50,7 @@ const WelcomePanel = (props) => {
                     Text={loading ? "Signing in..." : "Sign in with Facebook"}
                     Class="primary-large"
                     onClick={handleFacebookSignIn}
+                    disabled={loading}
                 />
                 {error && <div className="alert alert-danger mt-3">{error}</div>}
                 <Link to="/filters">
