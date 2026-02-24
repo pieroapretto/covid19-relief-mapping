@@ -6,7 +6,7 @@ import IconRow from './home_panel_components/IconRow';
 import ActionButton from '../../helpers/ActionButton';
 import { Link } from 'react-router-dom';
 import { resetFilters } from '../../../actions/filters';
-import { startFacebookLogin, login } from '../../../actions/auth';
+import { startGoogleLogin, login } from '../../../actions/auth';
 
 const WelcomePanel = (props) => {
     const [loading, setLoading] = useState(false);
@@ -16,11 +16,11 @@ const WelcomePanel = (props) => {
         props.dispatch(resetFilters());
     }, []);
 
-    const handleFacebookSignIn = () => {
+    const handleGoogleSignIn = () => {
         setLoading(true);
         setError('');
 
-        props.dispatch(startFacebookLogin())
+        props.dispatch(startGoogleLogin())
             .then((result) => {
                 const user = result.user;
                 props.dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
@@ -28,8 +28,8 @@ const WelcomePanel = (props) => {
                 props.history.push('/zipcode-prompt');
             })
             .catch((error) => {
-                console.error('Facebook sign-in error:', error);
-                setError(error.message || 'Failed to sign in with Facebook. Please try again.');
+                console.error('Google sign-in error:', error);
+                setError(error.message || 'Failed to sign in with Google. Please try again.');
                 setLoading(false);
             });
     };
@@ -47,9 +47,9 @@ const WelcomePanel = (props) => {
             <IconRow IconType="filter" Text="Search for help in your area by zipcode, proximity, date and type."/>
             <div className="btn-container">
                 <ActionButton
-                    Text={loading ? "Signing in..." : "Sign in with Facebook"}
+                    Text={loading ? "Signing in..." : "Sign in with Google"}
                     Class="primary-large"
-                    onClick={handleFacebookSignIn}
+                    onClick={handleGoogleSignIn}
                     disabled={loading}
                 />
                 {error && <div className="alert alert-danger mt-3">{error}</div>}
