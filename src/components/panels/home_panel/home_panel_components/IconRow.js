@@ -3,7 +3,7 @@ import LocationMarker from '../../../helpers/locationMarker';
 
 const IconRow = ({ Text, IconType }) => (
     <div className="icon-container row">
-        <div className="col-3 col-md-2">
+        <div className="col-2">
             {(() => {
                 switch (IconType) {
                     case 'filter':
@@ -17,7 +17,7 @@ const IconRow = ({ Text, IconType }) => (
                     }
             })()}
         </div>
-        <div className="col-9 col-md-10">
+        <div className="col-10">
             <p>{Text}</p>
         </div>
     </div>
