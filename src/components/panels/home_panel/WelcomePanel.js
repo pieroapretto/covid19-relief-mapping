@@ -39,7 +39,7 @@ const WelcomePanel = (props) => {
             <h2>Help Your Neighbors, Strengthen Your Community</h2>
             <div className="block-text-container">
                 {/* TODO: Update these Google Form URLs with new neighborly-focused forms */}
-                <p><a href="https://forms.gle/fwSfqDd87EkQFHn78" target="_blank">Sign up</a> to help your neighbors. Neighborly brings back the community spirit we enjoyed in the past, when neighbors looked out for each other. Whether you need help or have something to offer, connecting is easy. <a href="https://forms.gle/PuchtZrmHwCJ1GNs9" target="_blank">Join your community</a> today.</p>
+                <p>Neighborly revives the spirit of neighbors helping neighbors. Need help or have something to share? Connect easily and <a href="https://forms.gle/PuchtZrmHwCJ1GNs9" target="_blank">join your community</a> today.</p>
             </div>
             <SubHeader Text="Here's How It Works"/>
             <IconRow IconType="volunteer" Text="Request help from neighbors for tasks, services, or resources you need."/>
