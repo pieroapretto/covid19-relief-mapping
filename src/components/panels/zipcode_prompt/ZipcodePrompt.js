@@ -10,7 +10,7 @@ const ZipcodePrompt = (props) => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const handleZipcodeSubmit = async (e) => {
+    const handleZipcodeSubmit = (e) => {
         e.preventDefault();
 
         if (!zipcode || zipcode.length !== 5) {
@@ -21,31 +21,31 @@ const ZipcodePrompt = (props) => {
         setLoading(true);
         setError('');
 
-        try {
-            // Use Google Geocoding API to get lat/lng from zipcode
-            const response = await fetch(
-                `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=${process.env.GOOGLE_MAPS_API_KEY}`
-            );
-            const data = await response.json();
+        // Use Google Geocoding API to get lat/lng from zipcode
+        fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=${process.env.GOOGLE_MAPS_API_KEY}`
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.status === 'OK' && data.results.length > 0) {
+                    const location = data.results[0].geometry.location;
 
-            if (data.status === 'OK' && data.results.length > 0) {
-                const location = data.results[0].geometry.location;
+                    // Dispatch actions to set zipcode and coordinates
+                    props.dispatch(setZipCode(zipcode));
+                    props.dispatch(setLatLngCoordinates({ lat: location.lat, lng: location.lng }));
 
-                // Dispatch actions to set zipcode and coordinates
-                props.dispatch(setZipCode(zipcode));
-                props.dispatch(setLatLngCoordinates({ lat: location.lat, lng: location.lng }));
-
-                // Navigate to filters page
-                props.history.push('/filters');
-            } else {
-                setError('Zipcode not found. Please try again.');
+                    // Navigate to filters page
+                    props.history.push('/filters');
+                } else {
+                    setError('Zipcode not found. Please try again.');
+                    setLoading(false);
+                }
+            })
+            .catch((err) => {
+                console.error('Error geocoding zipcode:', err);
+                setError('Unable to verify zipcode. Please try again.');
                 setLoading(false);
-            }
-        } catch (err) {
-            console.error('Error geocoding zipcode:', err);
-            setError('Unable to verify zipcode. Please try again.');
-            setLoading(false);
-        }
+            });
     };
 
     return (
