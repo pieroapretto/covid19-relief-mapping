@@ -1,5 +1,6 @@
 import React from 'react';
 import {WelcomePanel, ProjectListPanel, ProjectFiltersPanel, ProjectDetailsPanel}  from './components/panels/index';
+import ZipcodePrompt from './components/panels/zipcode_prompt/ZipcodePrompt';
 import {Route, Switch} from 'react-router-dom';
 import MapContainer from './components/panels/map_panel/MapPanelContainer';
 
@@ -11,6 +12,7 @@ const App = () => {
           <section className="col-12 col-lg-4" id="side_panel_container">
             <Switch>
               <Route path="/" component={WelcomePanel} exact={true} />
+              <Route path="/zipcode-prompt" component={ZipcodePrompt} />
               <Route path="/filters" component={ProjectFiltersPanel} />
               <Route path="/projects" component={ProjectListPanel} />
               <Route path="/details" component={ProjectDetailsPanel} />
